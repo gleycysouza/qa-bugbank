@@ -1,9 +1,8 @@
 import { defineConfig } from 'cypress'
 import * as dotenv from 'dotenv'
+dotenv.config({ path: '.env' }) 
 
 const registerReportPortalPlugin = require('@reportportal/agent-js-cypress/lib/plugin')
-
-dotenv.config() 
 export default defineConfig({
     e2e: {
         defaultCommandTimeout: 10000,
