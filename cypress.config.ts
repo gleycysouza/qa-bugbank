@@ -12,10 +12,10 @@ export default defineConfig({
     },
     reporter: '@reportportal/agent-js-cypress',
     reporterOptions: {
-        endpoint: 'http://localhost:8080/api/v1',
-        token: 'bugbank_1PegeeP4QbSTihfdU5htrotXtRj45P3RJf9xNrDuRd5WEvqgVRjigBaXEG4faYtU',
-        launch: 'Testes BugBank',
-        project: 'bugbank',
+        endpoint: process.env.REPORT_PORTAL_API_URL,
+        apiKey: process.env.REPORT_PORTAL_API_TOKEN,
+        launch: process.env.REPORT_PORTAL_LAUNCH_NAME,
+        project: process.env.REPORT_PORTAL_PROJECT_NAME,
         attributes: [{ key: 'branch', value: 'master' }]
     }
 })
