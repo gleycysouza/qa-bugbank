@@ -1,6 +1,14 @@
 import { defineConfig } from 'cypress'
 import * as dotenv from 'dotenv'
-dotenv.config({ path: '.env' }) 
+
+// Configurar dotenv com logs suprimidos
+dotenv.config({ 
+    path: '.env',
+    quiet: true 
+})
+
+// Configurar SSL para desenvolvimento local
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
 const registerReportPortalPlugin = require('@reportportal/agent-js-cypress/lib/plugin')
 export default defineConfig({
@@ -10,12 +18,6 @@ export default defineConfig({
         requestTimeout: 15000,
         responseTimeout: 15000,
         setupNodeEvents(on, config) {
-            on('task', {
-                log(message) {
-                    cy.log(message)
-                    return null
-                }
-            })
             registerReportPortalPlugin(on, config)
             return config
         }
