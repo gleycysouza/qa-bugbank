@@ -10,6 +10,12 @@ export default defineConfig({
         requestTimeout: 15000,
         responseTimeout: 15000,
         setupNodeEvents(on, config) {
+            on('task', {
+                log(message) {
+                    cy.log(message)
+                    return null
+                }
+            })
             registerReportPortalPlugin(on, config)
             return config
         }
