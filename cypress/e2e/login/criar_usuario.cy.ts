@@ -1,5 +1,5 @@
 describe('Testes de criação de usuário no BugBank', () =>{
-    it('ID XXXX - Realizar registro com sucesso', () =>{
+    it('ID 1 - Realizar registro com sucesso', () =>{
         cy.log('Visitando a página do bugbank')
         cy.visit('http://localhost:3000/')
         cy.log('Clicando no botão de Registrar')
@@ -18,7 +18,7 @@ describe('Testes de criação de usuário no BugBank', () =>{
         cy.get('p#modalText').should('contain', 'foi criada com sucesso')
     })
     
-    it('ID XXXY - Realizar registro sem e-mail', () =>{
+    it('ID 2 - Realizar registro sem e-mail', () =>{
         cy.log('Visitando a página do bugbank')
         cy.visit('http://localhost:3000/')
         cy.log('Clicando no botão de Registrar')
